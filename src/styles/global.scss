@@ -1,0 +1,85 @@
+/* General styles */
+
+.page-content {
+  position: relative;
+}
+
+.icon-btn {
+  padding: 0px !important;
+  min-width: 28px !important;
+  border-radius: 50%;
+}
+
+/* Fix legend issue caused by Vuetify styles */
+
+legend {
+  display: block;
+}
+
+/* Dialog styles */
+
+.dialog-content {
+  padding-top: 24px !important;
+}
+
+.dialog-error {
+  color: #bf0d3e;
+  padding-bottom: 16px;
+}
+
+/* Data table styles */
+
+.table-content {
+  margin-top: 16px;
+}
+
+.table-container {
+  border: solid 1px #ededed !important;
+  border-top-radius: 5px;
+  height: calc(100vh - 290px);
+  overflow: auto;
+}
+
+.table-footer {
+  font-size: 13px;
+  font-weight: bold;
+  color: #555555;
+  border: solid 1px #ededed !important;
+  border-top: none !important;
+  border-bottom-radius: 5px;
+  padding-right: 70px;
+}
+
+@media only screen and (max-width: 600px) {
+  .table-content {
+    margin: 0px 0px;
+  }
+}
+
+// Override vuetify-confirm dialog styling to place action buttons at left instead of at right
+::v-deep .v-card.v-sheet .v-card__actions > div.spacer {
+  -webkit-box-flex: 0 !important;
+  -ms-flex-positive: 0 !important;
+  flex-grow: 0 !important;
+}
+
+::v-deep .v-input__icon--clear button.mdi-close {
+  font-size: 16px !important;
+}
+
+
+/* Override Vuetify styling for data table expanded row */
+::v-deep .v-data-table__expanded__content {
+  box-shadow: none !important;
+  background-color: #ffffff;
+  border-bottom: 0px;
+  border-top: solid 2px #cdcdcd;
+}
+
+::v-deep .v-data-table__expanded__content table {
+  background-color: white;
+}
+
+::v-deep .v-data-table__expanded__content > td {
+  border-bottom: none !important;
+}
