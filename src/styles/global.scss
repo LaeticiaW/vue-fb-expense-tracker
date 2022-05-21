@@ -35,8 +35,9 @@ legend {
 
 .table-container {
   border: solid 1px #ededed !important;
-  border-top-radius: 5px;
-  height: calc(100vh - 290px);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  height: calc(100vh - 300px);
   overflow: auto;
 }
 
@@ -46,7 +47,8 @@ legend {
   color: #555555;
   border: solid 1px #ededed !important;
   border-top: none !important;
-  border-bottom-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
   padding-right: 70px;
 }
 
@@ -66,7 +68,6 @@ legend {
 ::v-deep .v-input__icon--clear button.mdi-close {
   font-size: 16px !important;
 }
-
 
 /* Override Vuetify styling for data table expanded row */
 ::v-deep .v-data-table__expanded__content {

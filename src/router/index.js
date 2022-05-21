@@ -42,7 +42,7 @@ const routes = [
   {
     name: 'Expense Summary',
     path: '/expenseSummary',
-    meta: { icon: 'mdi-credit-card-outline' },
+    meta: { icon: 'mdi-credit-card' },
     component: ExpenseSummary
   },
   {

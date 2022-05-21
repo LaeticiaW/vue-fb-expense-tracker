@@ -16,7 +16,7 @@
 
     <!-- App bar -->
     <v-app-bar app color="primary" dark>
-      <v-app-bar-nav-icon v-if="isLoggedIn" @click.stop="navIconClicked" />
+      <v-app-bar-nav-icon v-if="isLoggedIn" @click.stop="navIconClicked" aria-label="App Menu" />
       <v-toolbar-title>Expense Tracker</v-toolbar-title>
       <v-spacer />
       <v-menu offset-y bottom :close-on-content-click="true" transition="scale-transition" v-if="isLoggedIn">

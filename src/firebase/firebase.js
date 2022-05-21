@@ -14,7 +14,7 @@ import {
   writeBatch,
   limit,
   runTransaction
-} from 'firebase/firestore'
+} from 'firebase/firestore/lite'
 
 // Firebase configuration
 const firebaseConfig = {

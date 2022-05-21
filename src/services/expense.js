@@ -3,7 +3,7 @@ import numeral from 'numeral'
 import { db, query, doc, collection, getDocs, setDoc, where, deleteDoc, writeBatch, limit } from '@/firebase/firebase'
 import CategoryService from '@/services/category'
 import { v4 as uuidv4 } from 'uuid'
-import { cloneDeep } from 'lodash'
+import { cloneDeep } from 'lodash-core'
 
 /*
   Firestore Expense document properties:
