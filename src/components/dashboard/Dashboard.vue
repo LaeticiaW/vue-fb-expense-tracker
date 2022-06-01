@@ -43,7 +43,7 @@ export default {
       dashboardOptions: {
         colNum: 12,
         rowHeight: 80,
-        isDraggable: true,
+        isDraggable: false,
         isResizable: true,
         isMirrored: false,
         verticalCompact: true,
@@ -177,5 +177,21 @@ export default {
   left: 24px !important;
   width: 96% !important;
   height: calc(100vh - 180px) !important;
+}
+
+// For responsive dashboard behavior
+@media only screen and (max-width: 1024px) {
+  ::v-deep .vue-grid-layout {
+    height: auto !important;
+    padding: 16px;
+  }
+  ::v-deep .vue-grid-item {
+    position: relative !important;
+    width: 100% !important;
+    top: inherit !important;
+    left: 0px !important;
+    transform: inherit !important;
+    margin-bottom: 24px !important;
+  }
 }
 </style>
