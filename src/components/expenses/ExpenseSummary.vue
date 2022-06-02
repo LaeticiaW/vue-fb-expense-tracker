@@ -4,7 +4,7 @@
 
     <div class="page-content table-content">
       <!-- Filter -->
-      <table-filter>
+      <table-filter :enable-prominent="true">
         <template v-slot:inputs>
           <!-- Start and end dates -->
           <date-range-input :date-range="filter" @date-range-changed="filterChanged" />

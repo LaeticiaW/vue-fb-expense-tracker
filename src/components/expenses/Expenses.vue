@@ -4,7 +4,7 @@
 
     <div class="page-content table-content">
       <!-- Filter -->
-      <table-filter>
+      <table-filter :enable-prominent="true">
         <template v-slot:inputs>
           <!-- Start and end dates -->
           <date-range-input :date-range="filter" @date-range-changed="filterChanged" />
@@ -226,6 +226,10 @@ export default {
         }
       }
     },
+
+    /*
+     * Expense has been updated, refresh the expenses data
+     */
     expenseUpdated() {
       this.getExpenses()
       if (this.addExpense) {
@@ -248,4 +252,8 @@ export default {
 
 <style lang="scss" scoped>
 @import '../../styles/global.scss';
+
+.create-expense-btn {
+  margin-left: 8px;
+}
 </style>

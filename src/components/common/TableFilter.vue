@@ -1,7 +1,7 @@
 <template>
   <!-- Common filter bar containing slots for inputs and actions -->
   <div class="filter-container">
-    <v-toolbar flat color="#ffffff" class="filter">
+    <v-toolbar flat color="#ffffff" class="filter" :prominent="prominent">
       <slot name="inputs" />
       <v-spacer />
       <slot name="actions" />
@@ -11,7 +11,49 @@
 
 <script>
 export default {
-  name: 'TableFilter'
+  name: 'TableFilter',
+  props: {
+    enableProminent: {
+      type: Boolean,
+      default: false
+    }
+  },
+  data() {
+    return {
+      prominent: false
+    }
+  },
+  methods: {
+    /*
+     * At extra small breakpoint, increase height of toolbar to handle wrapping fields
+     */
+    increaseToolbarHeight(isXsBreakpoint) {
+      if (isXsBreakpoint.matches) {
+        this.prominent = true
+      } else {
+        this.prominent = false
+      }
+    }
+  },
+
+  /*
+   * On mount, determine if need to increase size of toolbar
+   */
+  mounted() {
+    if (this.enableProminent) {
+      // At extra small breakpoint, increase the height of the toolbar
+      this.isXsBreakpoint = window.matchMedia('(max-width: 600px)')
+      this.increaseToolbarHeight(this.isXsBreakpoint)
+      this.isXsBreakpoint.addEventListener('change', this.increaseToolbarHeight)
+    }
+  },
+
+  /*
+   * Before destroy, remove event listeners
+   */
+  beforeDestroy() {
+    this.isXsBreakpoint.addEventListener('change', this.increaseToolbarHeight)
+  }
 }
 </script>
 
@@ -32,5 +74,9 @@ export default {
   ::v-deep .v-input label:not(.v-label--active) {
     font-size: 13px !important;
   }
+}
+
+.v-toolbar--prominent {
+  padding: 16px;
 }
 </style>

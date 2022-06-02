@@ -143,7 +143,12 @@ export default {
 <style lang="scss" scoped>
 .date-wrapper {
   display: inline-block;
-  width: 120px !important;
+  width: 100px !important;
   margin-right: 8px !important;
+}
+@media only screen and (max-width: 600px) {
+  .date-wrapper {
+    margin-bottom: 8px;
+  }
 }
 </style>

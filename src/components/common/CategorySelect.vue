@@ -75,4 +75,9 @@ export default {
 .other-count {
   padding-left: 4px;
 }
+
+.category-select {
+  max-width: 198px !important;
+  min-width: 198px !important;
+}
 </style>
