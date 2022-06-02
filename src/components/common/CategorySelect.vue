@@ -77,7 +77,7 @@ export default {
 }
 
 .category-select {
-  max-width: 198px !important;
-  min-width: 198px !important;
+  max-width: 230px !important;
+  min-width: 230px !important;
 }
 </style>

@@ -18,7 +18,7 @@
                     dense
                     outlined
                     required
-                    maxlength="30"
+                    maxlength="20"
                     v-model="subcategoryName"
                     :rules="nameRules"
                     label="Subcategory"

@@ -67,12 +67,12 @@ export default {
   ::v-deep .v-input,
   ::v-deep input::placeholder,
   .v-text-field__slot {
-    font-size: 13px !important;
+    font-size: 14px !important;
   }
 
-  // Change the Vuetify input label font size, only when the label is active, e.g. used as placeholder
+  // Change the Vuetify input label font size, only when the label is not active, e.g. used as placeholder
   ::v-deep .v-input label:not(.v-label--active) {
-    font-size: 13px !important;
+    font-size: 14px !important;
   }
 }
 

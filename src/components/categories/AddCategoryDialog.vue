@@ -18,7 +18,7 @@
                     dense
                     outlined
                     required
-                    maxlength="30"
+                    maxlength="20"
                     v-model="categoryName"
                     label="Category"
                     :rules="nameRules"

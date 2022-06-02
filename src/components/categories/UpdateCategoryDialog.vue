@@ -13,7 +13,7 @@
             <v-text-field
               dense
               outlined
-              maxlength="30"
+              maxlength="20"
               v-model="tempCategory.name"
               label="Category"
               required

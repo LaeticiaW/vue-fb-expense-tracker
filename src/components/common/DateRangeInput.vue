@@ -146,6 +146,11 @@ export default {
   width: 100px !important;
   margin-right: 8px !important;
 }
+
+::v-deep .date-wrapper .v-input {
+  font-size: 14px !important;
+}
+
 @media only screen and (max-width: 600px) {
   .date-wrapper {
     margin-bottom: 8px;
