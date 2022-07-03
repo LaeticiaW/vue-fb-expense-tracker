@@ -12,7 +12,7 @@ describe('ExpenseSummary.vue', () => {
 
   const categories = [
     {
-      _id: '1',
+      id: '1',
       name: 'Auto',
       subcategories: [
         { id: '101', name: 'Auto Insurance', matchText: ['Progressive'] },
@@ -21,7 +21,7 @@ describe('ExpenseSummary.vue', () => {
       ]
     },
     {
-      _id: '2',
+      id: '2',
       name: 'Groceries',
       subcategories: [
         { id: '104', name: 'Costco', matchText: ['Costco'] },
@@ -30,7 +30,7 @@ describe('ExpenseSummary.vue', () => {
       ]
     },
     {
-      _id: '3',
+      id: '3',
       name: 'Utilities',
       subcategories: [
         { id: '107', name: 'Electric' },

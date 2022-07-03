@@ -7,7 +7,7 @@ import { cloneDeep } from 'lodash-core'
 
 /*
   Firestore Expense document properties:
-    _id, categoryId, subcategoryId, importId, trxDate, trxYear, trxMonth, description, amount
+    id, categoryId, subcategoryId, importId, trxDate, trxYear, trxMonth, description, amount
 
 
   Client added properties:
@@ -66,7 +66,7 @@ export default {
    * @param {object} expense - expense object to save
    */
   saveExpense(expense) {
-    if (expense._id === undefined) {
+    if (expense.id === undefined) {
       return this.createExpense(expense)
     }
     return this.updateExpense(expense)
@@ -78,10 +78,10 @@ export default {
    */
   async createExpense(expense) {
     try {
-      expense._id = uuidv4()
+      expense.id = uuidv4()
       expense.trxYear = dayjs(expense.trxDate).year()
       expense.trxMonth = dayjs(expense.trxDate).month() + 1
-      await setDoc(doc(db, 'expenses', expense._id), expense)
+      await setDoc(doc(db, 'expenses', expense.id), expense)
     } catch (error) {
       console.error('ExpenseService.createExpense error', error)
       throw error
@@ -96,7 +96,7 @@ export default {
     try {
       expense.trxYear = dayjs(expense.trxDate).year()
       expense.trxMonth = dayjs(expense.trxDate).month() + 1
-      await setDoc(doc(db, 'expenses', expense._id), expense)
+      await setDoc(doc(db, 'expenses', expense.id), expense)
     } catch (error) {
       console.error('ExpenseService.updateExpense error', error)
       throw error
@@ -299,14 +299,14 @@ export default {
       const batch = writeBatch(db)
 
       // Insert the import summary document
-      importDetails._id = uuidv4()
-      batch.set(doc(db, 'imports', importDetails._id), importDetails)
+      importDetails.id = uuidv4()
+      batch.set(doc(db, 'imports', importDetails.id), importDetails)
 
       // Insert each expense document
       importExpenses.forEach((exp) => {
-        exp._id = uuidv4()
-        exp.importId = importDetails._id
-        batch.set(doc(db, 'expenses', exp._id), exp)
+        exp.id = uuidv4()
+        exp.importId = importDetails.id
+        batch.set(doc(db, 'expenses', exp.id), exp)
       })
 
       // Commit the batch
@@ -341,7 +341,7 @@ export default {
 
     // Delete each expense
     expenses.forEach((exp) => {
-      batch.delete(doc(db, 'expenses', exp._id))
+      batch.delete(doc(db, 'expenses', exp.id))
     })
 
     // Commit the batch

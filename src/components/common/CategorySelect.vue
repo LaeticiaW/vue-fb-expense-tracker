@@ -48,7 +48,7 @@ export default {
     },
     itemValue: {
       type: String,
-      default: '_id'
+      default: 'id'
     }
   },
   data() {

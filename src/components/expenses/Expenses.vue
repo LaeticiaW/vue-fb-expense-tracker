@@ -36,7 +36,7 @@
         <v-data-table
           :headers="headers"
           :items="expenses"
-          item-key="_id"
+          item-key="id"
           :sort-by.sync="sortBy"
           :sort-desc.sync="sortDesc"
           disable-pagination
@@ -217,7 +217,7 @@ export default {
       })
       if (confirm) {
         try {
-          await ExpenseService.deleteExpense(expense._id)
+          await ExpenseService.deleteExpense(expense.id)
           this.getExpenses()
           Util.showSnack(this.snackOptions, 'Expense deleted successfully', 'primary')
         } catch (error) {

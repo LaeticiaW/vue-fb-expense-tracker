@@ -4,7 +4,7 @@ import { omit } from 'lodash-core'
 
 /*
   Firestore Category document properties:
-    _id,
+    id,
     name,
     subcategories array
       id,
@@ -57,7 +57,7 @@ export default {
     try {
       const categories = await this.getCategories()
       const sameName = categories.find((cat) => {
-        return cat._id !== category._id && cat.name.toLowerCase() === category.name.toLowerCase()
+        return cat.id !== category.id && cat.name.toLowerCase() === category.name.toLowerCase()
       })
       if (sameName) {
         return false
@@ -81,8 +81,8 @@ export default {
         throw 'Duplicate category'
       }
 
-      category._id = uuidv4()
-      await setDoc(doc(db, 'categories', category._id), category)
+      category.id = uuidv4()
+      await setDoc(doc(db, 'categories', category.id), category)
       return category
     } catch (error) {
       console.error('CategoryService.createCategory error', error)
@@ -119,7 +119,7 @@ export default {
         cat.subcategories[index] = omit(subcat, ['treeId', 'parentTreeId'])
       })
 
-      await setDoc(doc(db, 'categories', cat._id), cat)
+      await setDoc(doc(db, 'categories', cat.id), cat)
       return category
     } catch (error) {
       console.error('CategoryService.updateCategory error', error)
@@ -147,12 +147,12 @@ export default {
     try {
       const categories = await this.getCategories()
       const selectCategories = categories.map((item) => ({
-        _id: item._id,
+        id: item.id,
         name: item.name
       }))
 
       const categoryMap = categories.reduce((map, obj) => {
-        map[obj._id] = obj
+        map[obj.id] = obj
         return map
       }, {})
 
@@ -187,7 +187,7 @@ export default {
     try {
       const categories = await this.getCategories()
       const selectCategories = categories.map((item) => ({
-        _id: item._id,
+        id: item.id,
         name: item.name
       }))
       return selectCategories
@@ -203,7 +203,7 @@ export default {
    */
   getCategoryMap(categories) {
     const categoryMap = categories.reduce((map, obj) => {
-      map[obj._id] = obj
+      map[obj.id] = obj
       return map
     }, {})
     return categoryMap

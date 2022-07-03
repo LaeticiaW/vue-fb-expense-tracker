@@ -11,14 +11,14 @@ describe('Imports.vue', () => {
 
   const imports = [
     {
-      _id: '1',
+      id: '1',
       importDate: '2020-04-17',
       fileName: 'Visa1-01_01_2020_to_04_05_2020.CSV',
       description: 'mycreditcard1',
       recordCount: 30
     },
     {
-      _id: '2',
+      id: '2',
       importDate: '2020-04-17',
       fileName: 'Visa2-Jan1-Apr7.csv',
       description: 'mycreditcard2',

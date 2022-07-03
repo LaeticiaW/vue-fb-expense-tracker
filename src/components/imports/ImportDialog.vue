@@ -290,7 +290,7 @@ export default {
                   subcat.matchText.forEach((text) => {
                     const regex = new RegExp(text, 'i')
                     if (expense.description.match(regex)) {
-                      expense.categoryId = cat._id
+                      expense.categoryId = cat.id
                       expense.subcategoryId = subcat.id
                     }
                   })

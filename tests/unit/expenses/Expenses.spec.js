@@ -12,7 +12,7 @@ describe('Expenses.vue', () => {
 
   const categories = [
     {
-      _id: '1',
+      id: '1',
       name: 'Auto',
       subcategories: [
         { id: '101', name: 'Auto Insurance', matchText: ['Progressive'] },
@@ -21,7 +21,7 @@ describe('Expenses.vue', () => {
       ]
     },
     {
-      _id: '2',
+      id: '2',
       name: 'Groceries',
       subcategories: [
         { id: '104', name: 'Costco', matchText: ['Costco'] },
@@ -30,7 +30,7 @@ describe('Expenses.vue', () => {
       ]
     },
     {
-      _id: '3',
+      id: '3',
       name: 'Utilities',
       subcategories: [
         { id: '107', name: 'Electric' },
@@ -42,7 +42,7 @@ describe('Expenses.vue', () => {
 
   const expenses = [
     {
-      _id: 503,
+      id: 503,
       trxDate: '2020-05-01',
       trxYear: 2020,
       trxMonth: 2,
@@ -54,7 +54,7 @@ describe('Expenses.vue', () => {
       amount: '74.15'
     },
     {
-      _id: 502,
+      id: 502,
       trxDate: '2020-04-01',
       trxYear: 2020,
       trxMonth: 2,
@@ -66,7 +66,7 @@ describe('Expenses.vue', () => {
       amount: '257.28'
     },
     {
-      _id: 501,
+      id: 501,
       trxDate: '2020-03-01',
       trxYear: 2020,
       trxMonth: 2,

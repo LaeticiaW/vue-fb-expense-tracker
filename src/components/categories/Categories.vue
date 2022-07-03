@@ -232,9 +232,9 @@ export default {
       })
       if (response) {
         try {
-          const categoryInUse = await ExpenseService.isCategoryInUse(this.currentCategory._id)
+          const categoryInUse = await ExpenseService.isCategoryInUse(this.currentCategory.id)
           if (!categoryInUse) {
-            await CategoryService.deleteCategory(this.currentCategory._id)
+            await CategoryService.deleteCategory(this.currentCategory.id)
             this.refreshCategories()
             Util.showSnack(this.snackOptions, 'Category deleted successfully', 'primary')
           } else {
@@ -305,7 +305,7 @@ export default {
 
         if (currentCat) {
           // Find the current category in the list
-          const idx = this.categories.findIndex((cat) => cat._id === currentCat._id)
+          const idx = this.categories.findIndex((cat) => cat.id === currentCat.id)
           if (idx !== -1) {
             this.currentCategory = this.categories[idx]
           } else {
@@ -335,7 +335,7 @@ export default {
         }
 
         this.openCategories = this.categories.filter(
-          (item) => this.openCategories.filter((openItem) => openItem._id === item._id).length > 0
+          (item) => this.openCategories.filter((openItem) => openItem.id === item.id).length > 0
         )
       } catch (error) {
         console.error('Error retrieving categories:', error)

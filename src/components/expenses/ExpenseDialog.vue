@@ -65,7 +65,7 @@
               v-model="tempExpense.categoryId"
               :items="categories"
               item-text="name"
-              item-value="_id"
+              item-value="id"
               @change="categorySelected"
               label="Category"
               background-color="#ffffff"
@@ -155,7 +155,7 @@ export default {
 
   computed: {
     dialogTitle() {
-      if (this.expense._id === undefined) {
+      if (this.expense.id === undefined) {
         return 'Create Expense'
       }
       return 'Update Expense'

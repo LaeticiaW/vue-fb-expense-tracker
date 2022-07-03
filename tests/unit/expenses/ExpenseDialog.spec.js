@@ -11,7 +11,7 @@ describe('ExpenseDialog.vue', () => {
 
   const categories = [
     {
-      _id: '1',
+      id: '1',
       name: 'Auto',
       subcategories: [
         { id: '101', name: 'Auto Insurance', matchText: ['Progressive'] },
@@ -20,7 +20,7 @@ describe('ExpenseDialog.vue', () => {
       ]
     },
     {
-      _id: '2',
+      id: '2',
       name: 'Groceries',
       subcategories: [
         { id: '104', name: 'Costco', matchText: ['Costco'] },
@@ -29,7 +29,7 @@ describe('ExpenseDialog.vue', () => {
       ]
     },
     {
-      _id: '3',
+      id: '3',
       name: 'Utilities',
       subcategories: [
         { id: '107', name: 'Electric' },
@@ -40,7 +40,7 @@ describe('ExpenseDialog.vue', () => {
   ]
 
   const expense = {
-    _id: 503,
+    id: 503,
     trxDate: '2020-05-01',
     trxYear: 2020,
     trxMonth: 2,
@@ -189,7 +189,7 @@ describe('ExpenseDialog.vue', () => {
     expect(wrapper.emitted()['expense-updated'].length).toEqual(1)
     expect(wrapper.emitted()['expense-updated'][0][0]).toEqual(
       expect.objectContaining({
-        _id: 503,
+        id: 503,
         trxDate: '2020-05-01',
         trxYear: 2020,
         trxMonth: 2,

@@ -29,7 +29,7 @@
         <v-data-table
           :headers="headers"
           :items="imports"
-          item-key="_id"
+          item-key="id"
           :sort-by.sync="sortBy"
           :sort-desc.sync="sortDesc"
           disable-pagination
@@ -166,7 +166,7 @@ export default {
       )
       if (confirm) {
         try {
-          await ExpenseService.deleteExpensesByImportId(importItem._id)
+          await ExpenseService.deleteExpensesByImportId(importItem.id)
           await this.getImports()
           Util.showSnack(this.snackOptions, 'Successfully deleted the imported expenses', 'primary')
         } catch (error) {
